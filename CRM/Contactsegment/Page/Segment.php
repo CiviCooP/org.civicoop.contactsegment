@@ -103,15 +103,15 @@ class CRM_Contactsegment_Page_Segment extends CRM_Core_Page {
    * @access protected
    */
   protected function initializePager() {
-    $params           = array(
+    $params = [
       'total' => CRM_Core_DAO::singleValueQuery("SELECT COUNT(*) FROM civicrm_segment"),
-      'rowCount' => CRM_Utils_Pager::ROWCOUNT,
+      'rowCount' => 50,
       'status' => ts('Sectors and Areas of Expertise %%StatusMessage%%'),
       'buttonBottom' => 'PagerBottomButton',
       'buttonTop' => 'PagerTopButton',
       'pageID' => $this->get(CRM_Utils_Pager::PAGE_ID),
-    );
+    ];
     $this->_pager = new CRM_Utils_Pager($params);
-    $this->assign_by_ref('pager', $this->_pager);
+    $this->assign('pager', $this->_pager);
   }
 }
