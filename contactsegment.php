@@ -208,15 +208,17 @@ function contactsegment_civicrm_navigationMenu( &$params ) {
 }
 
 /**
- * Implementation of hook civicrm_tabs
+ * Implements of hook civicrm_tabset()
  * to add a contact segment tab to the contact summary
  *
  * @param array $tabs
  * @param int $contactID
  * @link http://wiki.civicrm.org/confluence/display/CRMDOC/hook_civicrm_tabs
  */
-function contactsegment_civicrm_tabs(&$tabs, $contactID) {
-  $tabs[] = CRM_Contactsegment_BAO_ContactSegment::tabs($tabs, $contactID);
+function contactsegment_civicrm_tabset($tabsetName, &$tabs, $context) {
+  if ($tabsetName === 'civicrm/contact/view') {
+    $tabs[] = CRM_Contactsegment_BAO_ContactSegment::tabs($tabs, $context['contact_id']);
+  }
 }
 
 /**
