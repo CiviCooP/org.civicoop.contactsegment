@@ -275,7 +275,7 @@ class CRM_Contactsegment_Form_Segment extends CRM_Core_Form {
     $parentParams = array('id' => $parentId, 'return' => 'label');
     try {
       return civicrm_api3('Segment', 'Getvalue', $parentParams);
-    } catch (CiviCRM_API3_Exception $ex) {
+    } catch (CRM_Core_Exception $ex) {
       return "";
     }
   }

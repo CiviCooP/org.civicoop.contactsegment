@@ -8,7 +8,7 @@
  * @return array API result descriptor
  * @see civicrm_api3_create_success
  * @see civicrm_api3_create_error
- * @throws API_Exception
+ * @throws CRM_Core_Exception
  */
 function civicrm_api3_contact_segment_disable($params) {
   $sql = "SELECT id, segment_id, contact_id FROM civicrm_contact_segment WHERE end_date <= CURDATE() AND is_active = %1";

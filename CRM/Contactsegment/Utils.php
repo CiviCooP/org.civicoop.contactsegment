@@ -21,12 +21,12 @@ class CRM_Contactsegment_Utils {
       foreach ($optionValues['values'] as $optionValueId => $optionValue) {
         try {
           civicrm_api3('OptionValue', 'Delete', array('id' => $optionValueId));
-        } catch (CiviCRM_API3_Exception $ex) {}
+        } catch (CRM_Core_Exception $ex) {}
       }
-    } catch (CiviCRM_API3_Exception $ex) {}
+    } catch (CRM_Core_Exception $ex) {}
     try {
       civicrm_api3('OptionGroup', 'Delete', array('id' => $optionGroupId));
-    } catch (CiviCRM_API3_Exception $ex) {}
+    } catch (CRM_Core_Exception $ex) {}
   }
 
   /**
@@ -47,7 +47,7 @@ class CRM_Contactsegment_Utils {
     }
     try {
       return civicrm_api3('OptionValue', 'Create', $params);
-    } catch (CiviCRM_API3_Exception $ex) {
+    } catch (CRM_Core_Exception $ex) {
       return FALSE;
     }
   }
@@ -68,7 +68,7 @@ class CRM_Contactsegment_Utils {
       'return' => 'id');
     try {
       return civicrm_api3('OptionValue', 'Getvalue', $params);
-    } catch (CiviCRM_API3_Exception $ex) {
+    } catch (CRM_Core_Exception $ex) {
       return FALSE;
     }
   }
@@ -87,7 +87,7 @@ class CRM_Contactsegment_Utils {
     }
     try {
       return civicrm_api3('OptionGroup', 'Getsingle', array('name' => $optionGroupName));
-    } catch (CiviCRM_API3_Exception $ex) {
+    } catch (CRM_Core_Exception $ex) {
       return FALSE;
     }
   }
@@ -112,7 +112,7 @@ class CRM_Contactsegment_Utils {
     }
     try {
      return civicrm_api3('OptionGroup', 'Create', $params);
-    } catch (CiviCRM_API3_Exception $ex) {
+    } catch (CRM_Core_Exception $ex) {
       return FALSE;
     }
   }
@@ -165,7 +165,7 @@ class CRM_Contactsegment_Utils {
    *
    * @param $roleLabel
    * @return string
-   * @throws CiviCRM_API3_Exception
+   * @throws CRM_Core_Exception
    */
   public static function getRoleNameWithLabel($roleLabel) {
     $config = CRM_Contactsegment_Config::singleton();
@@ -182,7 +182,7 @@ class CRM_Contactsegment_Utils {
    *
    * @param $roleValue
    * @return array
-   * @throws CiviCRM_API3_Exception
+   * @throws CRM_Core_Exception
    */
   public static function getRoleLabel($roleValue) {
     $config = CRM_Contactsegment_Config::singleton();
@@ -198,7 +198,7 @@ class CRM_Contactsegment_Utils {
    * Method to get list of possible roles for a segment
    *
    * @return array
-   * @throws CiviCRM_API3_Exception
+   * @throws CRM_Core_Exception
    *
    */
   public static function getRoleList() {
@@ -219,7 +219,7 @@ class CRM_Contactsegment_Utils {
    * Method to get list of segment parents
    *
    * @return array
-   * @throws CiviCRM_API3_Exception
+   * @throws CRM_Core_Exception
    */
   public static function getParentList() {
     $parentList = array();
@@ -338,7 +338,7 @@ class CRM_Contactsegment_Utils {
           }
         }
       }
-    } catch (CiviCRM_API3_Exception $ex) {
+    } catch (CRM_Core_Exception $ex) {
       return FALSE;
     }
     return FALSE;

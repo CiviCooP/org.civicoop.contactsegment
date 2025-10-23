@@ -38,7 +38,7 @@ function _civicrm_api3_segment_setting_get_spec(&$spec) {
  * @return array API result descriptor
  * @see civicrm_api3_create_success
  * @see civicrm_api3_create_error
- * @throws API_Exception
+ * @throws CRM_Core_Exception
  * {@getfields segment_setting}
  */
 function civicrm_api3_segment_setting_get($params) {
